@@ -1,14 +1,16 @@
-﻿using System.Collections;
+﻿/*using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Exercises : MonoBehaviour {
 
-    public int ExerciseNr = 0;
-    public int ExerciseMax = 0;
-    public string CurrentQuestion = "Frage";
-    public string CurrentTask = "Aufgabe";
-    public string CurrentAnswer = "Antwort";
+    public int nrExercise = 0;
+    public int nrExerciseMax = 0;
+    public string current_question = "Frage";
+    public string current_task = "Task";
+    public string current_answer = "Antwort";
     bool ready = false;
 
     public string current_answer1;
@@ -20,7 +22,7 @@ public class Exercises : MonoBehaviour {
     public string[] items;
     public string[] exercises;
 
-    public Exercises()
+    public void Start()
     {
         exercises = new string[0];
         ready = false;
@@ -33,17 +35,17 @@ public class Exercises : MonoBehaviour {
 
     public void StartExercise()
     {
-        ExerciseMax = exercises.Length;
-        ExerciseNr = 1;
+        nrExerciseMax = exercises.Length;
+        nrExercise = 1;
         LoadQuestion(1);
     }
 
     public bool NextQuestion()
     {
-        if (ExerciseNr < ExerciseMax)
+        if (nrExercise < nrExerciseMax)
         {
-            ExerciseNr++;
-            LoadQuestion(ExerciseNr);
+            nrExercise++;
+            LoadQuestion(nrExercise);
             return true;
         }
         else
@@ -54,21 +56,22 @@ public class Exercises : MonoBehaviour {
 
     private void LoadQuestion(int i)
     {
-        CurrentTask = GetDataValue(exercises[i - 1], "task");
-        CurrentQuestion = GetDataValue(exercises[i - 1], "question");
-        CurrentAnswer = GetDataValue(exercises[i - 1], "answer");
-        if (!string.IsNullOrEmpty(GetDataValue(exercises[i - 1], "answer_pos")))
-        {
+        current_task = GetDataValue(exercises[i - 1], "task");
+        current_question = GetDataValue(exercises[i - 1], "question");
+        current_answer = GetDataValue(exercises[i - 1], "answer");
+        if (!string.IsNullOrEmpty(GetDataValue(exercises[i - 1], "answer_pos"))) { 
             string[] answer_pos = GetDataValue(exercises[i - 1], "answer_pos").Split(',');
             current_answer1 = answer_pos[0].Replace('{', ' ').Replace(" ", "");
             current_answer2 = answer_pos[1].Replace(" ", "");
             current_answer3 = answer_pos[2].Replace('}', ' ').Replace(" ", "");
         }
     }
-
+    
     /*
     HELPER 
     */
+
+    /*
     string GetDataValue(string data, string index)
     {
         string value = data.Substring(data.IndexOf(index) + index.Length + 2);
@@ -94,15 +97,17 @@ public class Exercises : MonoBehaviour {
             indexes.Add(index);
             //if clause to prevent empty list entries
             //if (data[index] != null) {
-            result.Add(data[index]);
+                result.Add(data[index]);
             //}
         }
         return result;
     }
-
+    
     /*
     DATABASE 
     */
+
+    /*
     IEnumerator ReadFromDB(string Sub, int Class, int Suits, int Key)
     {
         WWWForm form = new WWWForm();
@@ -218,7 +223,7 @@ public class Exercises : MonoBehaviour {
         List<string> result = PickRandom(items1, 20);
         exercises = result.ToArray();
     }
-
+    
     //Class 6 English
     //3x1 4x2 3x3 1x12 1x13
     IEnumerator LoadClass6_1_3(string Sub, int Class, int Suits)
@@ -243,7 +248,7 @@ public class Exercises : MonoBehaviour {
         exercises = result.ToArray();
         ready = true;
         Debug.Log("Fertige Liste:");
-        for (int i = 0; i < exercises.Length; i++)
+        for(int i = 0; i < exercises.Length; i++)
         {
             Debug.Log("Fertig" + i + ": " + exercises[i]);
         }
@@ -482,4 +487,4 @@ public class Exercises : MonoBehaviour {
             Debug.Log("Fertig" + i + ": " + exercises[i]);
         }
     }
-}
+}*/

@@ -5,17 +5,23 @@ using UnityEngine.UI;
 
 public class IO_Train : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            if (GameObject.Find("Button_Next").GetComponent<Button>().enabled) { AnswerQuestion(); }
-            else { NextQuestion(); }
-        }
+    Train Game;
+
+    // Use this for initialization
+    void Start() {
+        Game = new Train();
     }
+
+    // Update is called once per frame
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Return))   { ClickNext(); }
+    }
+
+    public void ClickNext() {
+        if (GameObject.Find("Button_Next").GetComponent<Button>().enabled) { AnswerQuestion(); }
+        else { NextQuestion(); }
+    }
+
+    void NextQuestion() { }
+    void AnswerQuestion() { }
 }
