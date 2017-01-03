@@ -1,13 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Reflection;
-using UnityEngine;
-using System.Collections;
-using System.Reflection;
+using System.Collections.Generic;
 
 public class Generator {
 
 	public Generator(){
+	}
+
+	public Entry[] GenerateList(int _lvl){
+		List<Entry> Entries = new List<Entry>();
+		switch (_lvl) {
+		case 1:
+			Entries.Add (Grundrechenarten1Mixed ());
+			Entries.Add (Grundrechenarten1Mixed ());
+			Entries.Add (Grundrechenarten1Mixed ());
+			break;
+		default:
+			for (int i = 0; i < 15; i++) {
+				Entries.Add (Grundrechenarten1Mixed ());
+			}
+			break;
+		}
+		return Entries.ToArray();
 	}
 
 	public Entry Generate(string _methodName){
@@ -254,8 +269,7 @@ public class Generator {
 		// while a ^ b > 1000 a = new Random, b = new Random
 		return new Entry (basis1 + "^" + c + " : " + basis2 + "^" + c , a+"^"+c, "Berechne ");
 	}
-
-
+		
 	private string getSignedInt(int _nr){
 		if (_nr <= 0) {
 			return _nr + "";

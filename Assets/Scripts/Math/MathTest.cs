@@ -7,8 +7,12 @@ public class MathTest : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Gen = new Generator ();
-		for (int i = 0; i < 10; i++) {
+		/*for (int i = 0; i < 10; i++) {
 			RandomTest ();
+		}*/
+		Entry[] Entries = Gen.GenerateList (1);
+		for (int i = 0; i < Entries.Length; i++) {
+			Debug.Log (Entries[i].ToString());
 		}
 	}
 
