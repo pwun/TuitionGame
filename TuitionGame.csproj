@@ -76,7 +76,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\General\Basic_IO.cs" />
+    <Compile Include="Assets\Scripts\General\Save\Character.cs" />
+    <Compile Include="Assets\Scripts\General\Save\Game.cs" />
+    <Compile Include="Assets\Scripts\General\Save\SaveLoad.cs" />
     <Compile Include="Assets\Scripts\Login\IO_Login.cs" />
+    <Compile Include="Assets\Scripts\Math\Entry.cs" />
+    <Compile Include="Assets\Scripts\Math\Generator.cs" />
+    <Compile Include="Assets\Scripts\Math\MathTest.cs" />
     <Compile Include="Assets\Scripts\Train\Exercises.cs" />
     <Compile Include="Assets\Scripts\Train\Exercises_old.cs" />
     <Compile Include="Assets\Scripts\Train\IO_Train.cs" />

@@ -9,7 +9,8 @@ public class IO_Train : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        Game = new Train();
+        string Subject = "english"; //Read From Savefile
+        Game = new Train(Subject);
     }
 
     // Update is called once per frame
